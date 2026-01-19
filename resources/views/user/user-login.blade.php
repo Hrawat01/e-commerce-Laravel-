@@ -16,10 +16,10 @@
 
         <!-- Left side: Login form -->
         <div class="w-1/2 p-8">
-            <h2 class="text-2xl font-bold text-gray-700 mb-6">Admin Panel</h2>
+            <h2 class="text-2xl font-bold text-gray-700 mb-6">User Login</h2>
             <p class="text-sm text-gray-500 mb-6">Sign in to start your session</p>
 
-            <form action="{{ route('admin.dashboard') }}" method="POST">
+            <form action="{{ route('user.login') }}" method="POST">
                 @csrf
 
                 <!-- Email -->
@@ -65,7 +65,7 @@
 
                 <!-- Forgot password -->
                 <div class="mt-4 text-right">
-                    <a href="#" class="text-sm text-blue-600 hover:underline">I forgot my password</a>
+                    <a href="{{route('admin.login')}}" class="text-sm text-blue-600 hover:underline">go to admin login</a>
                 </div>
             </form>
         </div>

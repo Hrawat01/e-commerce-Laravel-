@@ -7,8 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 ">
 
+
+
+     <x-user-nav />
+     <div class="p-6">
 
     <!-- USER HEADER -->
     <div class="bg-white p-6 rounded-xl shadow mb-6 flex justify-between items-center">
@@ -71,13 +75,13 @@
             </tbody>
         </table>
     </div>
- <form method="POST" action="{{ route('logout') }}" class="flex justify-center items-center">
+ <form method="POST" action="{{ route('userlogout') }}" class="flex justify-center items-center">
 @csrf
         <button type="submit" class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 mt-6 ">
             Logout
         </button>
     </form>
-
+     </div>
 </body>
 
 </html>

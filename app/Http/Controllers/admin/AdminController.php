@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
 {
-    public function index(){
-        return view('admin.login');
+    public function login(){
+        return view('admin/admin-login');
         }
 
 
@@ -56,45 +56,6 @@ return view('admin.dashboard', compact(
       }
 
 
-      public function userHome(){
-$response = Http::get('https://fakestoreapi.com/products');
-$products = $response->json();
-
-
-return view('user.home', compact('products'));
-      }
-
-
-
-
-public function userDashboard() {
-
-
-// ===== STATIC USER DATA =====
-$user = [
-'name' => 'Himesh Rawat',
-'email' => 'user@example.com',
-'wallet' => 1250,
-];
-
-
-$stats = [
-'orders' => 12,
-'wishlist' => 5,
-'cart' => 3,
-];
-
-
-$recentOrders = [
-['id' => 'ORD101', 'date' => '12 Jan 2026', 'status' => 'Delivered', 'total' => 1299],
-['id' => 'ORD102', 'date' => '05 Jan 2026', 'status' => 'Shipped', 'total' => 799],
-['id' => 'ORD103', 'date' => '28 Dec 2025', 'status' => 'Cancelled', 'total' => 499],
-];
-
-
-return view('user.userDashboard', compact('user', 'stats', 'recentOrders'));
-       
-}
 
 
 public function logout(){

@@ -7,31 +7,64 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-indigo-100">
 
 
     <!-- NAVBAR -->
-    <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold">MyShop</h1>
-        <div class="flex gap-4">
-            <a href="/user/dashboard" class="text-gray-600 hover:text-black">Dashboard</a>
-            <a href="#" class="relative text-gray-600 hover:text-black">
-                Cart
-                <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2">0</span>
-            </a>
-        </div>
-    </nav>
+    <x-user-nav />
 
 
-    <!-- HERO -->
-    <div class="bg-indigo-600 text-white text-center py-12">
-        <h2 class="text-3xl font-bold">Shop Trending Products</h2>
-        <p class="mt-2">Shop Now</p>
+<!-- HERO -->
+<div class="bg-gradient-to-r from-indigo-500 via-pink-500  to-purple-600 text-white py-14">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl font-bold mb-3">
+            Discover Trending Products
+        </h2>
+        <p class="text-indigo-100 mb-8">
+            Search, filter and shop your favourite items
+        </p>
+
+        <!-- SEARCH BAR -->
+        <form class="bg-white rounded-2xl p-3 flex flex-col md:flex-row gap-3 shadow-lg">
+
+            <!-- Search Input -->
+            <input
+                type="text"
+                placeholder="Search for products..."
+                class="flex-1 px-4 py-3 rounded-xl text-gray-700 focus:outline-none"
+            >
+
+            <!-- Category Dropdown -->
+            <select
+            class="px-4 py-3 rounded-xl text-gray-700 focus:outline-none">
+            <option value="">All Categories</option>
+            @foreach ($products->unique('category') as $category)
+            <option value="{{$category['category']}}">{{ucfirst($category['category'])}}</option>
+            @endforeach
+              
+            </select>
+
+            <!-- Search Button -->
+            <button
+                type="submit"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl transition">
+                Search
+            </button>
+        </form>
+
     </div>
+</div>
+
+
+
+
+
+
 
 
     <!-- PRODUCTS GRID -->
-<div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     @foreach($products as $product)
     <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl group">
 
@@ -48,9 +81,11 @@
         <div class="p-4 space-y-2">
 
             <!-- Category -->
-            <span class="inline-block text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-600">
-                {{ ucfirst($product['category']) }}
-            </span>
+<span class="inline-block text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600">
+  {{ ucfirst($product['category']) }}
+</span>
+
+
 
             <!-- Title -->
             <h3 class="font-semibold text-sm leading-snug line-clamp-2">
@@ -63,11 +98,13 @@
             </p>
 
             <!-- Button -->
-            <button
-                class="w-full mt-2 bg-indigo-600 text-white py-2 rounded-xl 
-                       hover:bg-indigo-700 active:scale-95 transition">
-                Add to Cart
-            </button>
+<button
+  class="w-full mt-2 bg-blue-600 text-white py-2 rounded-xl 
+         hover:bg-blue-700 active:scale-95 transition">
+  Add to Cart
+</button>
+
+
         </div>
 
     </div>
