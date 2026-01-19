@@ -20,3 +20,4 @@ Route::post('/user/login', [UserController::class, 'login'])->name('user.login')
 Route::get('/user/dashboard',[UserController::class,'userDashboard'] )->name('user.dashboard');
 Route::get('/user/home',[UserController::class,'userHome'] )->name('user.home');
 Route::post('/logout',[UserController::class, 'logout'])->name('userlogout');
+Route::get('/product/{id}', [UserController::class, 'showProduct'])->name('user.product.show');

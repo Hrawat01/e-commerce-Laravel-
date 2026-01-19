@@ -76,4 +76,20 @@ class UserController extends Controller
     {
         return redirect('/user/login');
     }
+
+
+
+    public function showProduct($id)
+{
+    $response = Http::get("https://fakestoreapi.com/products/$id");
+
+    if ($response->failed()) {
+        abort(404);
+    }
+
+    $product = $response->json();
+
+    return view('user/user-product-detail', compact('product'));
+}
+
 }   

@@ -70,11 +70,12 @@
 
         <!-- Image -->
         <div class="overflow-hidden rounded-t-2xl bg-gray-50">
+            <a href="{{ route('user.product.show', $product['id']) }}">
             <img 
                 src="{{ $product['image'] }}" 
                 alt="{{ $product['title'] }}"
                 class="w-full h-52 object-contain p-4 transition-transform duration-300 group-hover:scale-110"
-            >
+            > </a>
         </div>
 
         <!-- Content -->
